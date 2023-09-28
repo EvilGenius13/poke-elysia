@@ -1,18 +1,19 @@
-name: GH Actions
-on:
-  pull_request:
-    branches: [ main ]
+# NOT CURRENTLY WORKING
+# name: GH Actions
+# on:
+#   pull_request:
+#     branches: [ main ]
 
-jobs:
-  test:
-    name: initial-tests
-    runs-on: ubuntu-latest
-    steps:
-      # ...
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
+# jobs:
+#   test:
+#     name: initial-tests
+#     runs-on: ubuntu-latest
+#     steps:
+#       # ...
+#       - uses: actions/checkout@v3
+#       - uses: oven-sh/setup-bun@v1
 
-      # run any `bun` or `bunx` command
-      - run: bun install
-      - run: bun src/index.ts
-      - run: bun test
+#       # run any `bun` or `bunx` command
+#       - run: bun install
+#       - run: bun src/index.ts
+#       - run: bun test

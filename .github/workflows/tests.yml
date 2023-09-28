@@ -1,7 +1,11 @@
-name: bun-tests
+name: GH Actions
+on:
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  my-job:
-    name: my-job
+  test:
+    name: initial-tests
     runs-on: ubuntu-latest
     steps:
       # ...

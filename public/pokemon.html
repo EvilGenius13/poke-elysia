@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Poke Info</title>
-        <script src="/script.js"></script>
-    </head>
-    <body>
-        <h1>Hello Trainer!</h1>
-        <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/MistyEP.png" alt="Misty">
-        <p>Enter a Pokemon below into your pokedex!</p>
-        <form method="POST" action="/pokemon">
-            <input type="text" id="pokemon" name="pokemon">
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+<head>
+  <title>Poke Info</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Hello Trainer!</h1>
+  <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/MistyEP.png" alt="Misty">
+  <p>Enter a Pokemon below into your pokedex!</p>
+  <form method="POST" action="/pokemon:name">
+    <input type="text" id="name" name="name" placeholder="Enter a Pokemon">
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    const form = document.querySelector('form');
+    const input = document.querySelector('input');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const pokemonName = input.value;
+      window.location.href = `/pokemon/${pokemonName}`;
+    });
+  </script>
+</body>
 </html>

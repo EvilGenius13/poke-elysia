@@ -13,3 +13,10 @@ bun run dev
 ```
 
 Open http://localhost:3000/ with your browser to see the result.
+
+## Cache Testing
+To test the cache run:
+```bash
+b -n 1000 -c 10 http://localhost:3000/pokemon/<pokemon>
+```
+Replace `<pokemon>` with a pokemon name, for example `pikachu`.

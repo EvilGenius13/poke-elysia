@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title><%= pokemonData.name %></title>
+</head>
+<body>
+  <a href="/pokemon">Home</a>
+  <h1>Name: <%= pokemonData.name %></h1>
+  <h2>ID: <%= pokemonData.id %></h2>
+  <h2>Type: <%= pokemonData.types[0] %></h2>
+  <img src="<%= pokemonData.sprites.front_shiny %>">
+</body>
+</html>

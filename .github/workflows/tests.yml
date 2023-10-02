@@ -9,11 +9,26 @@ jobs:
     name: initial-tests
     runs-on: ubuntu-latest
     steps:
-      # ...
       - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
 
-      # run any `bun` or `bunx` command
-      - run: bun install
-      - run: bun src/index.ts
-      - run: bun test
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Start the server in the background using bun
+      - name: Start Server
+        run: bun src/index.ts &
+        background: true
+
+      # Wait for the server to be up and running
+      - name: Wait for Server
+        run: npx wait-on http://localhost:your_port
+        timeout-minutes: 5
+
+      # Run your tests
+      - name: Run Tests
+        run: npm test
+
+      # Stop the background server (optional)
+      - name: Stop Server
+        run: pkill -f "bun src/index.ts" || true

@@ -3,15 +3,33 @@
 <head>
   <title>Poke Info</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+  }
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 </head>
 <body>
-  <h1>Hello Trainer!</h1>
-  <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/MistyEP.png" alt="Misty">
-  <p>Enter a Pokemon below into your pokedex!</p>
-  <form method="POST" action="/pokemon:name">
-    <input type="text" id="name" name="name" placeholder="Enter a Pokemon">
-    <button type="submit">Submit</button>
-  </form>
+  <div id="container">
+    <h1>Hello Trainer!</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/MistyEP.png" alt="Misty">
+    <p>Enter a Pokemon below into your pokedex!</p>
+    <form method="POST" action="/pokemon:name">
+      <input type="text" id="name" name="name" placeholder="Enter a Pokemon">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
   <script>
     const form = document.querySelector('form');
     const input = document.querySelector('input');

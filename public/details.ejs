@@ -1,14 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
   <title><%= pokemonData.name %></title>
+  <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+
+    .card {
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+    }
+
+    .name {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: capitalize;
+
+    }
+
+    .line {
+        width: 50px;
+        height: 2px;
+        background-color: #000;
+        margin: 10px auto;
+    }
+
+    .image {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .info {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .id {
+        font-weight: bold;
+    }
+    .type {
+        text-transform: capitalize;
+    }
+</style>
 </head>
 <body>
-  <a href="/pokemon">Home</a>
-  <h1>Name: <%= pokemonData.name %></h1>
-  <h2>ID: <%= pokemonData.id %></h2>
-  <h2>Type: <%= pokemonData.types[0] %></h2>
-  <img src="<%= pokemonData.sprites.front_shiny %>">
+  <div class="card">
+    <div class="name"><%= pokemonData.name %></div>
+    <div class="line"></div>
+    <img class="image" src=<%= pokemonData.sprites.front_shiny %>
+    <div class="info">
+        <div class="id"><%= pokemonData.id %></div>
+        <div class="type"><%= pokemonData.types[0] %></div>
+        <a href="/pokemon">Back</a>
+    </div>
+  </div>
+  <script>
+    colours = {
+      'normal': '#A8A77A',
+      'fire': '#EE8130',
+      'water': '#6390F0',
+      'electric': '#F7D02C',
+      'grass': '#7AC74C',
+      'ice': '#96D9D6',
+      'fighting': '#c03028',
+      'poison': '#A33EA1',
+      'ground': '#E2BF65',
+      'flying': '#A98FF3',
+      'psychic': '#F95587',
+      'bug': '#A6B91A',
+      'rock': '#B6A136',
+      'ghost': '#705898',
+      'dragon': '#6F35FC',
+      'fairy': '#D685AD'
+  }
+  const card = document.querySelector('.card');
+  const pokemonType = '<%= pokemonData.types[0] %>';
+
+  if (colours[pokemonType]) {
+    card.style.backgroundColor = colours[pokemonType];
+  }
+  </script>
 </body>
 </html>

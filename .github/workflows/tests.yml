@@ -1,7 +1,12 @@
-name: bun-tests
+# NOT CURRENTLY WORKING
+name: build-and-test
+on:
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  my-job:
-    name: my-job
+  test:
+    name: initial-tests
     runs-on: ubuntu-latest
     steps:
       # ...
@@ -10,6 +15,5 @@ jobs:
 
       # run any `bun` or `bunx` command
       - run: bun install
-      - run: bun index.ts
-      - run: bun run build
+      # - run: bun src/index.ts
       - run: bun test
